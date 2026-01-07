@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>فروشگاه مینیمال</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <span class="logo"></span>
+        <b>فروشگاه مینیمال</b>
+      </a>
+      <div class="navlinks">
+        <a class="pill active" href="index.html">خانه</a>
+        <a class="pill" href="products.html">محصولات</a>
+        <a class="pill" href="reviews.html">نظرات</a>
+        <a class="pill" href="checkout.html">ثبت سفارش</a>
+        <a class="pill" href="cart.html">سبد (<span data-cartcount>0</span>)</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container grid" style="gap:14px">
+
+  <!-- بخش 1: هرو -->
+  <section class="card hero">
+    <h1>فروشگاه مینیمال ✨</h1>
+    <p>فروشگاه محصولات مینیمال</p>
+    <div class="btnrow">
+      <a class="btn" href="products.html">دیدن محصولات</a>
+      <a class="btn ghost" href="product.html"> صفحه محصول</a>
+    </div>
+    
+  </section>
+
+  <!-- بخش 2: دسته‌بندی‌ها -->
+  <section class="card">
+    <h2>دسته‌بندی‌ها</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h2>دیجیتال</h2>
+        <p>هدفون، گجت، لوازم جانبی</p>
+        <a class="btn ghost" href="products.html">مشاهده</a>
+      </div>
+      <div class="card">
+        <h2>خانه</h2>
+        <p>ماگ، دکور، لوازم سبک</p>
+        <a class="btn ghost" href="products.html">مشاهده</a>
+      </div>
+      <div class="card">
+        <h2>پوشاک</h2>
+        <p>تیشرت، اکسسوری</p>
+        <a class="btn ghost" href="products.html">مشاهده</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش 3: محصول پیشنهادی -->
+  <section class="card">
+    <h2>پیشنهاد امروز</h2>
+    <div class="product">
+      <div class="thumb"></div>
+      <div style="flex:1">
+        <b>هدفون بلوتوث مدل Nova</b>
+        <p style="margin:6px 0">باتری ۱۰ ساعته، سبک، مناسب استفاده روزانه</p>
+        <div class="btnrow">
+          <a class="btn" href="product.html">جزئیات</a>
+          <button class="btn green" onclick="addToCart({id:'nova',name:'هدفون Nova',price:890000})">افزودن به سبد</button>
+        </div>
+      </div>
+      <div class="price">890,000</div>
+    </div>
+  </section>
+
+  <!-- بخش 4: مراحل خرید -->
+  <section class="card">
+    <h2>چطور خرید کنم؟</h2>
+    <div class="kpi">
+      <div class="item"><b>۱) انتخاب</b><br><small>ت</small></div>
+      <div class="item"><b>۲) سبد خرید</b><br><small>د</small></div>
+      <div class="item"><b>۳) ثبت سفارش</b><br><small>ی</small></div>
+    </div>
+    <div class="btnrow">
+      <a class="btn ghost" href="cart.html">رفتن به سبد</a>
+      <a class="btn ghost" href="checkout.html">ثبت سفارش</a>
+    </div>
+  </section>
+
+  <!-- بخش 5: نظرات -->
+  <section class="card">
+    <h2>نظرات مشتریان</h2>
+    <p></p>نظر1</p>
+    <a class="btn" href="reviews.html">دیدن نظرات</a>
+  </section>
+
+  <div class="footer">
+فروشگاه مینیمال 
+  </div>
+</main>
+
+<div class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

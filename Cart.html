@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>سبد خرید | فروشگاه مینیمال</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html"><span class="logo"></span><b>فروشگاه مینیمال</b></a>
+      <div class="navlinks">
+        <a class="pill" href="index.html">خانه</a>
+        <a class="pill" href="products.html">محصولات</a>
+        <a class="pill" href="reviews.html">نظرات</a>
+        <a class="pill" href="checkout.html">ثبت سفارش</a>
+        <a class="pill active" href="cart.html">سبد (<span data-cartcount>0</span>)</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h1 style="margin:0 0 10px">سبد خرید</h1>
+    <p>سبد</p>
+    <hr />
+    <div id="cartList"></div>
+    <hr />
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <div><b>جمع کل:</b> <span id="total">0</span></div>
+      <div class="btnrow" style="margin:0">
+        <button class="btn red" onclick="clearCart(); renderCart(); toast('سبد پاک شد 🗑️')">پاک کردن سبد</button>
+        <a class="btn green" href="checkout.html">رفتن به ثبت سفارش</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">© فروشگاه مینیمال</div>
+</main>
+
+<div class="toast"></div>
+<script src="app.js"></script>
+<script>
+function renderCart(){
+  const list = document.getElementById("cartList");
+  const totalEl = document.getElementById("total");
+  const cart = getCart();
+
+  if(cart.length === 0){
+    list.innerHTML = <div class="card"><b>سبد خالیه.</b><p>از صفحه محصولات چیزی اضافه کن.</p><a class="btn" href="products.html">رفتن به محصولات</a></div>;
+    totalEl.textContent = "0";
+    updateCartCount();
+    return;
+  }
+
+  let total = 0;
+  list.innerHTML = cart.map(item => {
+    total += item.price * item.qty;
+    return `
+      <div class="card" style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="thumb"></div>
+          <div>
+            <b>${item.name}</b><br>
+            <small>تعداد: ${item.qty}</small>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div class="price">${(item.price * item.qty).toLocaleString('fa-IR')}</div>
+          <button class="btn red" onclick="removeFromCart('${item.id}'); renderCart(); toast('حذف شد ❌')">حذف</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  totalEl.textContent = total.toLocaleString('fa-IR');
+  updateCartCount();
+}
+document.addEventListener("DOMContentLoaded", renderCart);
+</script>
+</body>
+</html>

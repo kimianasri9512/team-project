@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>نظرات | فروشگاه مینیمال</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html"><span class="logo"></span><b>فروشگاه مینیمال</b></a>
+      <div class="navlinks">
+        <a class="pill" href="index.html">خانه</a>
+        <a class="pill" href="products.html">محصولات</a>
+        <a class="pill active" href="reviews.html">نظرات</a>
+        <a class="pill" href="checkout.html">ثبت سفارش</a>
+        <a class="pill" href="cart.html">سبد (<span data-cartcount>0</span>)</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container grid">
+  <section class="card">
+    <h1 style="margin:0 0 10px">نظرات مشتریان</h1>
+    <div id="list">
+      <div class="card"><b>علی:</b> طراحی خیلی تمیزه ✅</div>
+      <div class="card"><b>مریم:</b> روند خرید ساده بود 👍</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>ثبت نظر </h2>
+    <form id="revForm">
+      <label>نام</label>
+      <input id="name" required placeholder="نام شما" />
+      <label>نظر</label>
+      <textarea id="text" required rows="3" placeholder="متن نظر..."></textarea>
+      <button class="btn green" type="submit">ارسال</button>
+    </form>
+    
+  </section>
+
+  <div class="footer">© فروشگاه مینیمال</div>
+</main>
+
+<div class="toast"></div>
+<script src="app.js"></script>
+<script>
+document.getElementById("revForm").addEventListener("submit",(e)=>{
+  e.preventDefault();
+  const n = document.getElementById("name").value.trim();
+  const t = document.getElementById("text").value.trim();
+  if(!n || !t) return;
+
+  const box = document.getElementById("list");
+  const div = document.createElement("div");
+  div.className = "card";
+  div.innerHTML = <b>${n}:</b> ;$;{t};
+  box.prepend(div);
+
+  e.target.reset();
+  toast("نظر ثبت شد ✅ ");
+});
+</script>
+</body>
+</html>

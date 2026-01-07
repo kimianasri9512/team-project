@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>محصولات | فروشگاه مینیمال</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html"><span class="logo"></span><b>فروشگاه مینیمال</b></a>
+      <div class="navlinks">
+        <a class="pill" href="index.html">خانه</a>
+        <a class="pill active" href="products.html">محصولات</a>
+        <a class="pill" href="reviews.html">نظرات</a>
+        <a class="pill" href="checkout.html">ثبت سفارش</a>
+        <a class="pill" href="cart.html">سبد (<span data-cartcount>0</span>)</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h1 style="margin:0 0 10px">محصولات</h1>
+    <p>سه محصول .</p>
+    <hr />
+    <div class="grid grid-3">
+
+      <div class="card">
+        <div class="thumb" style="margin-bottom:10px"></div>
+        <b>هدفون Nova</b><br><small>دیجیتال</small>
+        <p>سبک، بیس خوب، باتری ۱۰ ساعت</p>
+        <div class="btnrow">
+          <a class="btn ghost" href="product.html">جزئیات</a>
+          <button class="btn green" onclick="addToCart({id:'nova',name:'هدفون Nova',price:890000})">افزودن</button>
+        </div>
+        <div class="price" style="margin-top:10px">890,000</div>
+      </div>
+
+      <div class="card">
+        <div class="thumb" style="margin-bottom:10px"></div>
+        <b>ماگ Stone</b><br><small>خانه</small>
+        <p>مینیمال، مقاوم، مناسب هدیه</p>
+        <div class="btnrow">
+          <a class="btn ghost" href="product.html">جزئیات</a>
+          <button class="btn green" onclick="addToCart({id:'mug',name:'ماگ Stone',price:210000})">افزودن</button>
+        </div>
+        <div class="price" style="margin-top:10px">210,000</div>
+      </div>
+
+      <div class="card">
+        <div class="thumb" style="margin-bottom:10px"></div>
+        <b>تیشرت Basic</b><br><small>پوشاک</small>
+        <p>نخی، راحت، رنگ ثابت</p>
+        <div class="btnrow">
+          <a class="btn ghost" href="product.html">جزئیات</a>
+          <button class="btn green" onclick="addToCart({id:'tee',name:'تیشرت Basic',price:350000})">افزودن</button>
+        </div>
+        <div class="price" style="margin-top:10px">350,000</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="footer">© فروشگاه مینیمال</div>
+</main>
+
+<div class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

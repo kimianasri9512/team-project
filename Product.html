@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>جزئیات محصول | فروشگاه مینیمال</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html"><span class="logo"></span><b>فروشگاه مینیمال</b></a>
+      <div class="navlinks">
+        <a class="pill" href="index.html">خانه</a>
+        <a class="pill" href="products.html">محصولات</a>
+        <a class="pill" href="reviews.html">نظرات</a>
+        <a class="pill" href="checkout.html">ثبت سفارش</a>
+        <a class="pill" href="cart.html">سبد (<span data-cartcount>0</span>)</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container grid">
+  <section class="card">
+    <h1 style="margin:0 0 10px">هدفون Nova</h1>
+    <div class="product">
+      <div class="thumb" style="width:92px;height:92px"></div>
+      <div style="flex:1">
+        <p style="margin:0">کیفیت صدای شفاف، سبک و مناسب استفاده روزانه.</p>
+        <div class="badges">
+          <span class="badge">موجود</span>
+          <span class="badge">ارسال ۲۴ ساعته </span>
+          <span class="badge">گارانتی ۶ ماه</span>
+        </div>
+        <div class="btnrow">
+          <button class="btn green" onclick="addToCart({id:'nova',name:'هدفون Nova',price:890000})">افزودن به سبد</button>
+          <a class="btn ghost" href="cart.html">رفتن به سبد</a>
+        </div>
+      </div>
+      <div class="price" style="font-size:18px">890,000</div>
+    </div>
+
+    <hr />
+
+    <h2>مشخصات</h2>
+    <ul style="margin:0;color:var(--muted);line-height:1.9">
+      <li>باتری: ۱۰ ساعت</li>
+      <li>وزن: ۱۸۰ گرم</li>
+      <li>اتصال: Bluetooth</li>
+      <li>رنگ: مشکی</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>محصولات مشابه</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <b>ماگ Stone</b>
+        <p>مینیمال و شیک</p>
+        <a class="btn ghost" href="products.html">دیدن</a>
+      </div>
+      <div class="card">
+        <b>تیشرت Basic</b>
+        <p>راحت و ساده</p>
+        <a class="btn ghost" href="products.html">دیدن</a>
+      </div>
+      <div class="card">
+        <b>گجت Mini</b>
+        <p>نمونه ی</p>
+        <a class="btn ghost" href="products.html">دیدن</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">© فروشگاه مینیمال</div>
+</main>
+
+<div class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

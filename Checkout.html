@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ثبت سفارش | فروشگاه مینیمال</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html"><span class="logo"></span><b>فروشگاه مینیمال</b></a>
+      <div class="navlinks">
+        <a class="pill" href="index.html">خانه</a>
+        <a class="pill" href="products.html">محصولات</a>
+        <a class="pill" href="reviews.html">نظرات</a>
+        <a class="pill active" href="checkout.html">ثبت سفارش</a>
+        <a class="pill" href="cart.html">سبد (<span data-cartcount>0</span>)</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container grid" style="gap:14px">
+  <!-- فرم سفارش -->
+  <section class="card">
+    <h1 style="margin:0 0 10px">ثبت سفارش</h1>
+    <p>ثبت</p>
+
+    <form id="orderForm">
+      <label>نام و نام خانوادگی</label>
+      <input id="fullName" required placeholder=" هدی احمدی" />
+
+      <label>شماره تماس</label>
+      <input id="phone" required placeholder="09..." />
+
+      <label>آدرس</label>
+      <textarea id="address" required rows="3" placeholder="شیراز"></textarea>
+
+      <div class="btnrow">
+        <button class="btn green" type="submit">ثبت نهایی</button>
+        <a class="btn ghost" href="cart.html">برگشت به سبد</a>
+        <a class="btn ghost" href="products.html">ادامه خرید</a>
+      </div>
+    </form>
+  </section>
+
+  <!-- خلاصه سبد -->
+  <section class="card">
+    <h2>خلاصه سبد</h2>
+    <div id="summary"></div>
+  </section>
+
+  <div class="footer">© فروشگاه مینیمال</div>
+</main>
+
+<div class="toast"></div>
+
+<!-- مهم: اول app.js بعد کدهای این صفحه -->
+<script src="app.js"></script>
+
+<script>
+function renderSummary(){
+  const box = document.getElementById("summary");
+  const cart = getCart();
+
+  if(cart.length === 0){
+    box.innerHTML = `
+      <div class="card">
+        <b>سبد خالیه.</b>
+        <p>اول از صفحه محصولات چیزی اضافه کن.</p>
+        <a class="btn" href="products.html">رفتن به محصولات</a>
+      </div>
+    `;
+    return;
+  }
+
+  let total = 0;
+
+  const itemsHTML = cart.map(x => {
+    total += x.price * x.qty;
+    return `
+      <div class="card" style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap">
+        <span>${x.name} × ${x.qty}</span>
+        <b>${(x.price * x.qty).toLocaleString('fa-IR')}</b>
+      </div>
+    `;
+  }).join("");
+
+  box.innerHTML = `
+    ${itemsHTML}
+    <hr />
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <b>جمع کل:</b>
+      <b>${total.toLocaleString('fa-IR')}</b>
+    </div>
+  `;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderSummary();
+});
+
+document.getElementById("orderForm").addEventListener("submit", (e)=>{
+  e.preventDefault();
+
+  if(getCart().length === 0){
+    toast("سبد خالیه 😅");
+    return;
+  }
+
+  // (نمایشی) ثبت سفارش
+  clearCart();
+  renderSummary();
+  updateCartCount();
+
+  toast("سفارش ثبت شد ✅ ");
+  alert("سفارش شما ثبت شد . ممنون!");
+});
+</script>
+</body>
+</html>
